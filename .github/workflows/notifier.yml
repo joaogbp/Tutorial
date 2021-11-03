@@ -8,6 +8,18 @@ on:
 
 jobs:
 
+  messageSlack:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Notification Slack
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: ci
+        SLACK_TITLE: Post Title
+        SLACK_USERNAME: BotCI
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_MESSAGE: "This is your custom message."
+
   notifyWhatsApp:
     runs-on: ubuntu-latest
     steps:
